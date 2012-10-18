@@ -11,10 +11,12 @@ public class EMail {
 
 		// Recipient's email ID needs to be mentioned.
 //		String to = "berthold.wiblishauser@haw-hamburg.de";
-		String to = "zappper@trash-mail.com";
+//		String to = "zappper@trash-mail.com";
+		String to = "fabian.wib@gmail.com";
 
 		// Sender's email ID needs to be mentioned
-		String from = "Donald.Duck@Disneyland.de";
+//		String from = "Donald.Duck@Disneyland.de";
+		String from = "berthold.wiblishauser@haw-hamburg.de";
 
 		// Assuming you are sending email from localhost
 //		String host = "localhost";
@@ -29,8 +31,8 @@ public class EMail {
 		// Get the default Session object.
 		Session session = Session.getDefaultInstance(properties);
 		
-		String user = "abb664";
-		String pw = "xxx";
+		String user = PW.getName();
+		String pw = PW.getPW();
 
 		Transport transport = session.getTransport("smtp");
 			
@@ -51,7 +53,7 @@ public class EMail {
 			message.setText("This is actual message");
 
 			// Send message
-			transport.connect(host,995,user,pw);
+			transport.connect(host,587,user,pw);
 		    transport.sendMessage(message,message.getAllRecipients());
 		    transport.close();
 //			Transport.send(message);
